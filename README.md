@@ -23,4 +23,8 @@
   Step 8 - Well Done! Your device is blinkig. Congratulate!
   
   
+<<<<<<< HEAD
   ![alt text](https://github.com/MaksimDannik/Blinking--iot/blob/master/Ajax.jpeg)
+=======
+  ![alt text](https://github.com/MaksimDannik/Blinking/Ajax.jpeg)
+>>>>>>> f3f7a623a3d1b45a62be7cc966b688bc1ae652ee
