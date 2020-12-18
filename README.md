@@ -16,13 +16,20 @@
   ##How to run your solution
   
   Step 1 - https://github.com/MaksimDannik/Blinking--iot.git
+  
   Step 2 - Open CodeComposerStudio
+  
   Step 3 - Build the program (empty.c)
+  
   Step 4 - connect device LAUNCHXL - CC1352R1
+  
   Step 5 - Open UnitFlash program and find device
+  
   Step 6 - In UnitFlash (find button Program) -> Flash Image -> Browse -> empty_CC1352R1_LAUNCHXL_tirtos_ccs (dir) -> Debug (dir) -> choose     
   empty_CC1352R1_LAUNCHXL_tirtos_ccs.out(file)
+  
   Step 7 - In UnitFlash Load Image
+  
   Step 8 - Well Done! Your device is blinkig. Congratulate!
   
   
