@@ -3,8 +3,9 @@
 ```I create program that turn a built-in LED on/off at random intervals for a random timefrom 1 to 10 seconds.```
 
 ##Requirements and dependencies
+
   You need install:
-    1. Code Composted Studio(select SimpleLink ```CC13xx and CC26xx Wireless MCUs``` and ```Spectrum DigitalDebug Probes and Boards```  -         
+    1. Code Composted Studio(select SimpleLink ```CC13xx and CC26xx Wireless MCUs and Spectrum DigitalDebug Probes and Boards```  -         
     https://www.ti.com/tool/download/CCSTUDIO
     2. Unit Flash - https://www.ti.com/tool/download/UNIFLASH
   
