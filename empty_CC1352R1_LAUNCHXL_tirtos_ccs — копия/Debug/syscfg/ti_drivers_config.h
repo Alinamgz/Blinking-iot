@@ -43,8 +43,8 @@ extern "C" {
  */
 
 /* DIO6, LaunchPad LED Red */
-extern const uint_least8_t              CONFIG_GPIO_0_CONST;
-#define CONFIG_GPIO_0                   0
+extern const uint_least8_t              CONFIG_GPIO_LED_0_CONST;
+#define CONFIG_GPIO_LED_0               0
 #define CONFIG_TI_DRIVERS_GPIO_COUNT    1
 
 /* LEDs are active high */
@@ -62,9 +62,18 @@ extern const uint_least8_t              CONFIG_GPIO_0_CONST;
 
 extern const PIN_Config BoardGpioInitTable[];
 
-/* LaunchPad LED Red, Parent Signal: CONFIG_GPIO_0 GPIO Pin, (DIO6) */
+/* LaunchPad LED Red, Parent Signal: CONFIG_GPIO_LED_0 GPIO Pin, (DIO6) */
 #define CONFIG_PIN_0                   0x00000006
 #define CONFIG_TI_DRIVERS_PIN_COUNT    1
+
+
+/*
+ *  ======== TRNG ========
+ */
+
+extern const uint_least8_t              CONFIG_TRNG_0_CONST;
+#define CONFIG_TRNG_0                   0
+#define CONFIG_TI_DRIVERS_TRNG_COUNT    1
 
 
 /*

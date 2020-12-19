@@ -11,16 +11,20 @@
 const GPIO  = scripting.addModule("/ti/drivers/GPIO");
 const GPIO1 = GPIO.addInstance();
 const RTOS  = scripting.addModule("/ti/drivers/RTOS");
+const TRNG  = scripting.addModule("/ti/drivers/TRNG", {}, false);
+const TRNG1 = TRNG.addInstance();
 
 /**
  * Write custom configuration values to the imported modules.
  */
-GPIO1.$name             = "CONFIG_GPIO_0";
 GPIO1.$hardware         = system.deviceData.board.components.LED_RED;
+GPIO1.$name             = "CONFIG_GPIO_LED_0";
 GPIO1.pinInstance.$name = "CONFIG_PIN_0";
 
 const CCFG              = scripting.addModule("/ti/devices/CCFG", {}, false);
 CCFG.ccfgTemplate.$name = "ti_devices_CCFGTemplate0";
+
+TRNG1.$name = "CONFIG_TRNG_0";
 
 /**
  * Pinmux solution for unlocked pins/peripherals. This ensures that minor changes to the automatic solver in a future

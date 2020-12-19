@@ -35,46 +35,56 @@
  */
 
 /* For usleep() */
+#include <stddef.h>
+#include <stdlib.h>
 #include <unistd.h>
 #include <stdint.h>
-#include <stddef.h>
 
 /* Driver Header files */
 #include <ti/drivers/GPIO.h>
-// #include <ti/drivers/I2C.h>
-// #include <ti/drivers/SPI.h>
-// #include <ti/drivers/UART.h>
-// #include <ti/drivers/Watchdog.h>
+#include <ti/drivers/TRNG.h>
+#include <ti/drivers/cryptoutils/cryptokey/CryptoKeyPlaintext.h>
 
-/* Driver configuration */
+#define TRNG_INSTANCE 0
+#define KEY_LENGTH_BYTES 16
+
+/* Board Header file */
 #include "ti_drivers_config.h"
-
-/*
- *  ======== mainThread ========
- */
-
-int my_rend(int min, int max) {
-    return min + rand() % max + 1 - min;
-}
 
 void *mainThread(void *arg0)
 {
+    int_fast16_t result;
+    TRNG_init();
+    TRNG_Handle handle;
+    CryptoKey entropyKey;
+    uint8_t entropyBuffer[KEY_LENGTH_BYTES];
+
+    handle = TRNG_open(TRNG_INSTANCE, NULL);
+
+    CryptoKeyPlaintext_initBlankKey(&entropyKey, entropyBuffer, KEY_LENGTH_BYTES);
+    result = TRNG_generateEntropy(handle, &entropyKey);
+
+    if (result != TRNG_STATUS_SUCCESS) {
+        // Handle error
+        while(1);
+    }
+
     /* Call driver init functions */
     GPIO_init();
-    // I2C_init();
-    // SPI_init();
-    // UART_init();
-    // Watchdog_init();
-
     /* Configure the LED pin */
-    GPIO_setConfig(CONFIG_GPIO_0, GPIO_CFG_OUT_STD | GPIO_CFG_OUT_LOW);
+    GPIO_setConfig(CONFIG_GPIO_LED_0, GPIO_CFG_OUT_STD | GPIO_CFG_OUT_LOW);
+    /* Turn off user LED */
+    GPIO_write(CONFIG_GPIO_LED_0, CONFIG_GPIO_LED_ON);
 
-    /* Turn on user LED */
-    GPIO_write(CONFIG_GPIO_0, CONFIG_GPIO_LED_ON);
+    unsigned int random_number = 0;
+       int i = 0;
+       for (i = 0; i < 16; i++) {
+           random_number += entropyBuffer[i];
+       }
 
-    while (1) {
-        sleep(my_rend(1, 10));
-        GPIO_toggle(CONFIG_GPIO_0);
-        sleep(my_rend(1, 10));
+    srand(random_number);
+    while(1) {
+        sleep(1 + rand() % 10);
+        GPIO_toggle(CONFIG_GPIO_LED_0);
     }
 }

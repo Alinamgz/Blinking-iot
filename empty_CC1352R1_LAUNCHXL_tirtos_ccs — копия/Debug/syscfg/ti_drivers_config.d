@@ -40,6 +40,10 @@ syscfg/ti_drivers_config.obj: /Volumes/Storage/shared/mdannyk/ti/ccs1011/simplel
 syscfg/ti_drivers_config.obj: /Volumes/Storage/shared/mdannyk/ti/ccs1011/simplelink_cc13x2_26x2_sdk_4_30_00_54/source/ti/drivers/dpl/ClockP.h
 syscfg/ti_drivers_config.obj: /Volumes/Storage/shared/mdannyk/ti/ccs1011/simplelink_cc13x2_26x2_sdk_4_30_00_54/source/ti/drivers/power/PowerCC26XX.h
 syscfg/ti_drivers_config.obj: /Volumes/Storage/shared/mdannyk/ti/ccs1011/simplelink_cc13x2_26x2_sdk_4_30_00_54/source/ti/drivers/Temperature.h
+syscfg/ti_drivers_config.obj: /Volumes/Storage/shared/mdannyk/ti/ccs1011/simplelink_cc13x2_26x2_sdk_4_30_00_54/source/ti/drivers/TRNG.h
+syscfg/ti_drivers_config.obj: /Volumes/Storage/shared/mdannyk/ti/ccs1011/simplelink_cc13x2_26x2_sdk_4_30_00_54/source/ti/drivers/cryptoutils/cryptokey/CryptoKey.h
+syscfg/ti_drivers_config.obj: /Volumes/Storage/shared/mdannyk/ti/ccs1011/simplelink_cc13x2_26x2_sdk_4_30_00_54/source/ti/drivers/trng/TRNGCC26XX.h
+syscfg/ti_drivers_config.obj: /Volumes/Storage/shared/mdannyk/ti/ccs1011/simplelink_cc13x2_26x2_sdk_4_30_00_54/source/ti/drivers/dpl/SemaphoreP.h
 syscfg/ti_drivers_config.obj: /Volumes/Storage/shared/mdannyk/ti/ccs1011/simplelink_cc13x2_26x2_sdk_4_30_00_54/source/ti/drivers/Board.h
 
 syscfg/ti_drivers_config.c: 
@@ -82,4 +86,8 @@ syscfg/ti_drivers_config.h:
 /Volumes/Storage/shared/mdannyk/ti/ccs1011/simplelink_cc13x2_26x2_sdk_4_30_00_54/source/ti/drivers/dpl/ClockP.h: 
 /Volumes/Storage/shared/mdannyk/ti/ccs1011/simplelink_cc13x2_26x2_sdk_4_30_00_54/source/ti/drivers/power/PowerCC26XX.h: 
 /Volumes/Storage/shared/mdannyk/ti/ccs1011/simplelink_cc13x2_26x2_sdk_4_30_00_54/source/ti/drivers/Temperature.h: 
+/Volumes/Storage/shared/mdannyk/ti/ccs1011/simplelink_cc13x2_26x2_sdk_4_30_00_54/source/ti/drivers/TRNG.h: 
+/Volumes/Storage/shared/mdannyk/ti/ccs1011/simplelink_cc13x2_26x2_sdk_4_30_00_54/source/ti/drivers/cryptoutils/cryptokey/CryptoKey.h: 
+/Volumes/Storage/shared/mdannyk/ti/ccs1011/simplelink_cc13x2_26x2_sdk_4_30_00_54/source/ti/drivers/trng/TRNGCC26XX.h: 
+/Volumes/Storage/shared/mdannyk/ti/ccs1011/simplelink_cc13x2_26x2_sdk_4_30_00_54/source/ti/drivers/dpl/SemaphoreP.h: 
 /Volumes/Storage/shared/mdannyk/ti/ccs1011/simplelink_cc13x2_26x2_sdk_4_30_00_54/source/ti/drivers/Board.h: 

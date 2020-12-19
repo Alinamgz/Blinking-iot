@@ -31,7 +31,7 @@
  *  Array of Pin configurations
  */
 GPIO_PinConfig gpioPinConfigs[] = {
-    /* CONFIG_GPIO_0 : LaunchPad LED Red */
+    /* CONFIG_GPIO_LED_0 : LaunchPad LED Red */
     GPIOCC26XX_DIO_06 | GPIO_CFG_OUT_STD | GPIO_CFG_OUT_STR_MED | GPIO_CFG_OUT_LOW,
 };
 
@@ -44,11 +44,11 @@ GPIO_PinConfig gpioPinConfigs[] = {
  *  (GPIO.optimizeCallbackTableSize = true)
  */
 GPIO_CallbackFxn gpioCallbackFunctions[] = {
-    /* CONFIG_GPIO_0 : LaunchPad LED Red */
+    /* CONFIG_GPIO_LED_0 : LaunchPad LED Red */
     NULL,
 };
 
-const uint_least8_t CONFIG_GPIO_0_CONST = CONFIG_GPIO_0;
+const uint_least8_t CONFIG_GPIO_LED_0_CONST = CONFIG_GPIO_LED_0;
 
 /*
  *  ======== GPIOCC26XX_config ========
@@ -70,7 +70,7 @@ const GPIOCC26XX_Config GPIOCC26XX_config = {
 #define CONFIG_PIN_COUNT 1
 
 const PIN_Config BoardGpioInitTable[CONFIG_PIN_COUNT + 1] = {
-    /* LaunchPad LED Red, Parent Signal: CONFIG_GPIO_0 GPIO Pin, (DIO6) */
+    /* LaunchPad LED Red, Parent Signal: CONFIG_GPIO_LED_0 GPIO Pin, (DIO6) */
     CONFIG_PIN_0 | PIN_GPIO_OUTPUT_EN | PIN_GPIO_LOW | PIN_PUSHPULL | PIN_DRVSTR_MED,
 
     PIN_TERMINATE
@@ -100,6 +100,38 @@ const PowerCC26X2_Config PowerCC26X2_config = {
     .calibrateRCOSC_HF        = true,
     .enableTCXOFxn            = NULL
 };
+
+/*
+ *  =============================== TRNG ===============================
+ */
+
+#include <ti/drivers/TRNG.h>
+#include <ti/drivers/trng/TRNGCC26XX.h>
+
+#define CONFIG_TRNG_COUNT 1
+
+TRNGCC26XX_Object trngCC26XXObjects[CONFIG_TRNG_COUNT];
+
+/*
+ *  ======== trngCC26XXHWAttrs ========
+ */
+static const TRNGCC26XX_HWAttrs trngCC26XXHWAttrs[CONFIG_TRNG_COUNT] = {
+    {
+        .intPriority = (~0),
+        .swiPriority = 0,
+        .samplesPerCycle = 240000
+    },
+};
+
+const TRNG_Config TRNG_config[CONFIG_TRNG_COUNT] = {
+    {   /* CONFIG_TRNG_0 */
+        .object         = &trngCC26XXObjects[CONFIG_TRNG_0],
+        .hwAttrs        = &trngCC26XXHWAttrs[CONFIG_TRNG_0]
+    },
+};
+
+const uint_least8_t CONFIG_TRNG_0_CONST = CONFIG_TRNG_0;
+const uint_least8_t TRNG_count = CONFIG_TRNG_COUNT;
 
 #include <stdbool.h>
 
